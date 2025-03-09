@@ -69,3 +69,61 @@ def django_json_view(request):
 
     return JsonResponse(emp_data)
 
+
+
+
+
+
+from django.views.generic import View
+
+class JsonCBV(View):
+    def get(self, request, *args, **kwargs):
+            emp_data={
+            'eno': 100,
+            'ename': 'Durga',
+            'esal': 75000,
+            'eaddr': 'Bengluru'
+            }
+
+            return JsonResponse(emp_data)
+    
+
+class JsonCBV1(View):
+    def get(self, _request, *_args, **_kwargs):
+            json_data=json.dumps({'msg':'This is msg from get'})
+            return HttpResponse(content=json_data, content_type='application/json')
+    def post(self, _request, *_args, **_kwargs):
+            json_data=json.dumps({'msg':'This is msg from post'})
+            return HttpResponse(content=json_data, content_type='application/json')
+    def put(self, _request, *_args, **_kwargs):
+            json_data=json.dumps({'msg':'This is msg from put'})
+            return HttpResponse(content=json_data, content_type='application/json')
+    def delete(self, _request, *_args, **_kwargs):
+            json_data=json.dumps({'msg':'This is msg from delete'})
+            return HttpResponse(content=json_data, content_type='application/json')
+
+
+
+
+from testapp.mixins import HttpResponseMixins
+
+
+class JsonCBV2(HttpResponseMixins,View):
+    def get(self, _request, *_args, **_kwargs):
+            json_data=json.dumps({'msg':'This is msg from get'})
+            return self.render_to_http_response(json_data)
+    
+    def post(self, _request, *_args, **_kwargs):
+            json_data=json.dumps({'msg':'This is msg from post'})
+            return self.render_to_http_response(json_data)
+    
+    def put(self, _request, *_args, **_kwargs):
+            json_data=json.dumps({'msg':'This is msg from put'})
+            return self.render_to_http_response(json_data)
+    
+    def delete(self, _request, *_args, **_kwargs):
+            json_data=json.dumps({'msg':'This is msg from delete'})
+            return self.render_to_http_response(json_data)
+    
+
+    

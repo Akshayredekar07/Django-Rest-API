@@ -1,5 +1,5 @@
 """
-URL configuration for P01_withoutrest project.
+URL configuration for P02_crud_without_rest project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -16,14 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from testapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', views.emp_data_view),
-    path('json/', views.json_view),
-    path('json1/', views.django_json_view),
-    path('jsoncbv/', views.JsonCBV.as_view()),
-    path('jsoncbv1/', views.JsonCBV1.as_view()),
-    path('jsoncbv2/', views.JsonCBV1.as_view()),
 ]
