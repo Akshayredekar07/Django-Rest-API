@@ -43,3 +43,46 @@ python manage.py runserver
 This will start the server at `http://127.0.0.1:8000/`.  
 
 ---
+
+
+### **Status Codes**
+
+Status code represents the status of HttpResponse. The following are various possible status codes:
+
+- **1XX → Informational**  
+- **2XX → Successful**  
+- **3XX → Redirection**  
+- **4XX → Client Error**  
+- **5XX → Server Error**  
+
+
+
+#### **1XX → Informational**  
+These indicate that the request has been received and is being processed.  
+- **100 Continue** → The server has received the request headers, and the client should continue sending the body.  
+- **101 Switching Protocols** → The client has requested the server to switch protocols, and the server agrees.  
+- **102 Processing** → The server is still processing the request but has not completed it yet.  
+- **103 Early Hints** → Used to return response headers before the final HTTP message.
+
+#### **2XX → Successful**  
+- **200 OK** → The request was successful.  
+- **201 Created** → A new resource has been successfully created.  
+- **204 No Content** → The request was successful, but there is no response body.  
+
+#### **3XX → Redirection**  
+- **301 Moved Permanently** → The resource has been permanently moved to a new URL.  
+- **302 Found** → The resource is temporarily available at a different location.  
+- **304 Not Modified** → The resource has not been modified since the last request (used for caching).  
+
+#### **4XX → Client Error**  
+- **400 Bad Request** → The request is malformed and cannot be processed.  
+- **401 Unauthorized** → Authentication is required but missing or invalid.  
+- **403 Forbidden** → The client does not have permission to access the resource.  
+- **404 Not Found** → The requested resource could not be found on the server.  
+- **429 Too Many Requests** → The client has sent too many requests in a short period.  
+
+#### **5XX → Server Error**  
+- **500 Internal Server Error** → A generic server error.  
+- **502 Bad Gateway** → The server received an invalid response from an upstream server.  
+- **503 Service Unavailable** → The server is temporarily unavailable due to maintenance or overload.  
+- **504 Gateway Timeout** → The upstream server did not respond in time.  
